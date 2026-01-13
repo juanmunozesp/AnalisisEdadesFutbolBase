@@ -1,0 +1,112 @@
+---
+title: "Efecto de la Edad Relativa en fútbol base de élite"
+subtitle: "Caso práctico – Programación y Análisis de Datos Deportivos"
+author: "Juan Jose Muñoz Espinoza"
+date: "2026"
+format: docx
+---
+# 1. Título del caso práctico
+
+**Efecto de la Edad Relativa en fútbol base de élite: relación entre trimestre de nacimiento y participación/rendimiento en Superliga Cadete y División de Honor Cadete (RFFM)**
+
+---
+
+# 2. Objetivo del análisis
+
+Analizar la influencia del trimestre de nacimiento en la distribución de jugadores y en su nivel de participación y rendimiento en las competiciones cadete de mayor nivel de la Real Federación de Fútbol de Madrid (Superliga Cadete y División de Honor Cadete).
+
+El objetivo es identificar si existe un sesgo asociado al Efecto de Edad Relativa, que favorezca a los jugadores nacidos en los primeros meses del año frente a los nacidos a final de año, y aportar evidencia que pueda ser útil para mejorar los procesos de captación y desarrollo de talento en fútbol base.
+
+---
+
+# 3. Datos necesarios
+
+**Variables:**
+- Fecha de nacimiento del jugador.  
+- Competición (Superliga Cadete o División de Honor Cadete).  
+- Equipo.  
+- Partidos jugados.  
+- Partidos como titular.  
+- Goles marcados.  
+
+**Fuentes:**
+- Información pública disponible en la web oficial de la RFFM.  
+- Fichas de jugadores en actas de partido.  
+- Rankings de goleadores.  
+- Información de competiciones y equipos.  
+
+**Formato:**  
+CSV o Excel.
+
+---
+
+# 4. Transformaciones y limpieza
+
+**Problemas esperables:**
+- Nombres de jugadores inconsistentes o duplicados.  
+- Formatos diferentes en fechas de nacimiento.  
+- Valores nulos en partidos jugados o estadísticas.  
+
+**Técnicas utilizadas:**
+- Normalización de texto en nombres de jugadores y equipos.  
+- Eliminación de duplicados.  
+- Conversión de fechas a formato estándar.  
+- Creación de variables derivadas mediante feature engineering:
+  - Trimestre de nacimiento (`birth_quarter`: Q1, Q2, Q3, Q4).  
+  - Goles por partido (`goles / partidos_jugados`).  
+  - Porcentaje de titularidades (`partidos_titular / partidos_jugados`).  
+
+**Herramientas:**
+- Python con la librería `pandas`.
+
+---
+
+# 5. Análisis y herramientas
+
+**Métodos:**
+- Estadística descriptiva:
+  - Distribución de jugadores por trimestre de nacimiento.  
+  - Medias de partidos jugados, porcentaje de titularidades y goles por partido según trimestre.  
+- Comparación entre competiciones:
+  - Superliga Cadete frente a División de Honor Cadete.  
+- Comparación principal:
+  - Diferencias entre jugadores Q1 (enero–marzo) y Q4 (octubre–diciembre).  
+
+**Librerías:**
+- Python: `pandas`, `matplotlib`, `seaborn`, `requests`.
+
+**Uso de LLM:**
+
+**Prompt:**
+> Tomarás el rol de analista de rendimiento en fútbol base.  
+> A partir de estos resultados: distribución de jugadores por trimestre de nacimiento y diferencias en partidos jugados, porcentaje de titularidades y goles por partido entre Q1 y Q4.  
+> Redacta un resumen claro para entrenadores y propone cinco medidas prácticas para reducir el sesgo asociado a la edad relativa en procesos de selección.
+
+---
+
+# 6. Visualización y comunicación
+
+**Gráficos:**
+- Gráfico de barras con la distribución de jugadores por trimestre (Q1–Q4).  
+- Gráfico de barras con la media de goles por partido por trimestre.  
+- Boxplot con la distribución de porcentaje de titularidades según trimestre.  
+- Comparación visual entre Superliga y División de Honor.  
+
+**Informe reproducible con Quarto.**
+
+---
+
+# 7. Gestión del proyecto
+
+**Organización:**
+- Carpeta `/data/raw` para datos crudos.  
+- Carpeta `/data/processed` para datos limpios.  
+- Carpeta `/scripts` para el código en Python.  
+- Carpeta `/reports` para informe Quarto.  
+
+**Control de versiones:**
+- Repositorio en GitHub.  
+- Commits por etapas (importación, limpieza, análisis).  
+
+**Tratamiento de errores:**
+- Uso de bloques `try/except` en procesos de lectura de datos o scraping.
